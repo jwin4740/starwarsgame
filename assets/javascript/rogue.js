@@ -49,18 +49,23 @@ $(document).ready(function() {
     $(attacker).addClass('attacker').appendTo("#attackerbox");
    proceed0 = true;
 });
-function addDefenders (){
-    if (proceed0 && $(".player").hasClass("starter"))
-    {
-        $(".starter").appendTo("#defenderondeckbox");
-    }
-    else{
-        console.log("else statement");
-    }
-}
+// function addDefenders (){
+//     if (proceed0 && $(".player").hasClass("starter"))
+//     {
+//         $(".starter").appendTo("#defenderondeckbox");
+//     }
+//     else{
+//         console.log("else statement");
+//     }
+// }
  
 
-    $('.confirmbutton').on("click", addDefenders);
+    $('.confirmbutton').on("click", function(){
+        if (proceed0)
+        {
+         $(".starter").appendTo("#defenderondeckbox");
+        }
+    });
 // characterArray -= (characterArray[$(this).attr('data-player') - 1]);
 // console.log()
    
