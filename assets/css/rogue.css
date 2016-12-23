@@ -8,5 +8,55 @@ body {
     position: absolute;
     z-index: -1;
     color: white;
+    text-align: center;
+    width: 100%;
 }
 
+/*player images*/
+.pimage{
+    width: 175px;
+    height: 150px;
+    
+}
+
+.player{
+    float: left;
+    margin: 0px 10px 0px 10px;
+}
+
+/*.player:hover{
+    float: left;
+    margin: 0px 10px 0px 10px;
+    border: solid 5px yellow;
+    cursor: pointer;
+}*/
+
+#attackerbox{
+    float: left;
+    height: 200px;
+    border: solid 2px white;
+    width: 600px;
+}
+
+.attacker{
+    border: solid 5px green;
+}
+
+#defenderbox{
+    float: left;
+    height: 200px;
+    border: solid 2px white;
+    width: 600px;
+}
+
+#defenderondeckbox{
+    float: left;
+    height: 200px;
+    border: solid 2px white;
+    width: 600px;
+}
+
+
+button{
+    background-color: black;
+}

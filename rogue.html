@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-    <script src="assets/javascript/functionlibrary.js"></script>
-    <script src="assets/javascript/starwarsgame.js"></script>
+    <!-- <script src="assets/javascript/functionlibrary.js"></script> -->
+    <script src="assets/javascript/rogue.js"></script>
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href=assets/css/reset.css> -->
-    <link rel="stylesheet" href="assets/css/rogue.css">
+    <link rel="stylesheet" href="assets/css/jjwstylelibrary.css">
     <link rel="stylesheet" href="assets/css/rogue.css">
     <title> STAR WARS </title>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
@@ -17,7 +17,7 @@
 
 <body>
     
- hello world
+ 
     <audio loop id="theme2">
         <source src="assets/av/saberduelcut.mp3" type="audio/mp3">
     </audio>
@@ -36,7 +36,41 @@
     </audio>
     <audio id="hoversound" src="assets/av/switchon.wav">
     </audio>
-    
+
+<h1> STAR WARS RPG </h1> 
+<button class="confirmbutton">Confirm</button>
+<div id="choosebox">
+    <div id="obi" class="player starter" data-player= "1">
+        <h4> Obi-wan Kenobi </h4>
+        <img class="pimage" src="assets/images/obiwan.jpg">
+    </div>
+
+    <div id="qui" class="player starter" data-player= "2">
+        <h4> Qui-gonn Gin </h4>
+        <img class="pimage" src="assets/images/quigon.jpeg">
+    </div>
+
+    <div id="count" class="player starter" data-player= "3">
+        <h4> Count Dooku </h4>
+        <img class="pimage" src="assets/images/countdooku.jpg">
+    </div>
+
+    <div id="darth" class="player starter" data-player= "4">
+        <h4> Darth Maul </h4>
+        <img class="pimage" src="assets/images/darthmaul.jpeg">
+    </div>
+
+</div>
+
+<div id="attackerbox">
+</div>
+
+<div id="defenderbox">
+</div>
+
+<div id="defenderondeckbox">
+</div>
+
 </body>
 
 </html>
