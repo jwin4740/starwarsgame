@@ -15,27 +15,30 @@ body {
 /*player images*/
 .pimage{
     width: 175px;
-    height: 150px;
-    
+    height: 150px; 
+}
+h4{
+    margin: 3px;
 }
 
 .player{
     float: left;
     margin: 0px 10px 0px 10px;
+    border: solid 5px purple;
 }
 
-/*.player:hover{
+.player:hover{
     float: left;
     margin: 0px 10px 0px 10px;
     border: solid 5px yellow;
     cursor: pointer;
-}*/
+}
 
 #attackerbox{
     float: left;
-    height: 200px;
+    height: 300px;
     border: solid 2px white;
-    width: 600px;
+    width: 1000px;
 }
 
 .attacker{

@@ -6,6 +6,7 @@ var attacker;
 var currentdefender;
 var defender1, defender2, defender3;
 var proceed0 = false;
+var switchf = true;
 
 
 
@@ -16,17 +17,19 @@ $(document).ready(function() {
 
 
     // prototype object
-    function Character(name, healthPoints, attackPower, counterAttackPower) {
+    function Character(name, healthPoints, attackPower, counterAttackPower, id, nameheader, imagesource) {
         this.name = name;
         this.healthPoints = healthPoints;
         this.attackPower = attackPower;
         this.counterAttackPower = counterAttackPower;
-    }
+        this.ele = '<div ' + id + 'class="player"><h4>'+ nameheader + '</h4><img class="pimage" src="assets/images/' + imagesource + '</div>';
+    }; 
+    
 
-    var charOne = new Character("ObiwanKenobi", 175, 12, 15);
-    var charTwo = new Character("QuigonGinn", 200, 14, 20);
-    var charThree = new Character("CountDooku", 250, 16, 25);
-    var charFour = new Character("DarthMaul", 150, 18, 30);
+    var charOne = new Character("ObiwanKenobi", 175, 12, 15, 'id="obi" ', 'Obi-wan Kenobi', 'obiwan.jpg">');
+    var charTwo = new Character("QuigonGinn", 200, 14, 20, 'id="qui" ', 'Qui-gon Ginn', 'quigon.jpeg">');
+    var charThree = new Character("CountDooku", 250, 16, 25, 'id="count" ', 'Count Dooku', 'countdooku.jpg">');
+    var charFour = new Character("DarthMaul", 150, 18, 30, 'id="darth" ', 'Darth Maul', 'darthmaul.jpeg">');
 
     //fill character array
     characterArray.push(charOne);
@@ -35,47 +38,25 @@ $(document).ready(function() {
     characterArray.push(charFour);
     
     
+console.log(charOne.ele);
+$("#attackerbox").html(charOne.ele);
+$("#attackerbox").append(charTwo.ele);
+$("#attackerbox").append(charThree.ele);
+$("#attackerbox").append(charFour.ele);
 
 
-    $('.player').on("click", function(){
-        $("#attacker").append(this);
-    var temp = ($(this).attr('data-player') - 1);
-    console.log(temp);
-   characterArray.splice(characterArray[temp], 1);
-    console.log(characterArray);
-    attacker = $(this);
-    $(attacker).removeClass("starter");
-    console.log(attacker);
-    $(attacker).addClass('attacker').appendTo("#attackerbox");
-   proceed0 = true;
-});
-// function addDefenders (){
-//     if (proceed0 && $(".player").hasClass("starter"))
-//     {
-//         $(".starter").appendTo("#defenderondeckbox");
-//     }
-//     else{
-//         console.log("else statement");
-//     }
-// }
- 
-
-    $('.confirmbutton').on("click", function(){
-        if (proceed0)
-        {
-         $(".starter").appendTo("#defenderondeckbox");
-        }
-    });
-// characterArray -= (characterArray[$(this).attr('data-player') - 1]);
-// console.log()
    
-
-    
-
-
-
 
 
 // --------------------------------------------------
 
 });
+
+
+
+
+
+
+
+
+
