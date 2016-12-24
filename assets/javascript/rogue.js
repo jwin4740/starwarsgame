@@ -1,12 +1,12 @@
 //global variables
 
 
-var characterArray = [];
+var cArray = [];
 var attacker;
 var currentdefender;
 var defender1, defender2, defender3;
-var proceed0 = false;
-var switchf = true;
+var checkpoint1 = false;
+
 
 
 
@@ -17,14 +17,14 @@ $(document).ready(function() {
 
 
     // prototype object
-    function Character(name, healthPoints, attackPower, counterAttackPower, id, nameheader, imagesource) {
+    function Character(name, hP, aP, cAP, id, nameheader, imagesource) {
         this.name = name;
-        this.healthPoints = healthPoints;
-        this.attackPower = attackPower;
-        this.counterAttackPower = counterAttackPower;
-        this.ele = '<div ' + id + 'class="player"><h4>'+ nameheader + '</h4><img class="pimage" src="assets/images/' + imagesource + '</div>';
-    }; 
-    
+        this.hP = hP;
+        this.aP = aP;
+        this.cAP = cAP;
+        this.ele = '<div ' + id + 'class="player"><h4>' + nameheader + '</h4><img class="pimage" src="assets/images/' + imagesource + '</div>';
+    };
+
 
     var charOne = new Character("ObiwanKenobi", 175, 12, 15, 'id="obi" ', 'Obi-wan Kenobi', 'obiwan.jpg">');
     var charTwo = new Character("QuigonGinn", 200, 14, 20, 'id="qui" ', 'Qui-gon Ginn', 'quigon.jpeg">');
@@ -32,31 +32,45 @@ $(document).ready(function() {
     var charFour = new Character("DarthMaul", 150, 18, 30, 'id="darth" ', 'Darth Maul', 'darthmaul.jpeg">');
 
     //fill character array
-    characterArray.push(charOne);
-    characterArray.push(charTwo);
-    characterArray.push(charThree);
-    characterArray.push(charFour);
-    
-    
-console.log(charOne.ele);
-$("#attackerbox").html(charOne.ele);
-$("#attackerbox").append(charTwo.ele);
-$("#attackerbox").append(charThree.ele);
-$("#attackerbox").append(charFour.ele);
+    cArray.push(charOne);
+    cArray.push(charTwo);
+    cArray.push(charThree);
+    cArray.push(charFour);
+    console.log(cArray);
 
 
-   
 
 
-// --------------------------------------------------
+    // user chooses their player which appends to the attacker box, while the remaining players get appended
+    // to the defenderondeck box
+    function setup() {
+        $("#choosebox").html(charOne.ele);
+        $("#choosebox").append(charTwo.ele);
+        $("#choosebox").append(charThree.ele);
+        $("#choosebox").append(charFour.ele);
+    }
+
+
+setup();
+
+    $('.player').on("click", function() {
+        if (checkpoint1 === false) {
+            $(this).siblings().addClass("defender").appendTo("#defenderondeckbox");
+            $(this).addClass("attacker").appendTo("#attackerbox");
+            console.log(checkpoint1);
+            checkpoint1 = true;
+
+        }
+    });
+
+    $("#defenderondeckbox").on("click", ".player.defender", function() {
+        
+        currentdefender = this;
+        console.log(currentdefender);
+        $(currentdefender).appendTo("#defenderbox");
+    });
+
+
+    // --------------------------------------------------
 
 });
-
-
-
-
-
-
-
-
-

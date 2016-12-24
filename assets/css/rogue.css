@@ -27,13 +27,13 @@ h4{
     border: solid 5px purple;
 }
 
-.player:hover{
+/*.player:hover{
     float: left;
     margin: 0px 10px 0px 10px;
     border: solid 5px yellow;
     cursor: pointer;
 }
-
+*/
 #attackerbox{
     float: left;
     height: 300px;
@@ -42,7 +42,10 @@ h4{
 }
 
 .attacker{
-    border: solid 5px green;
+    border: solid 5px green; 
+    float: left;
+    margin: 0px 10px 0px 10px;
+   
 }
 
 #defenderbox{
@@ -62,4 +65,11 @@ h4{
 
 button{
     background-color: black;
+}
+
+.defender{ 
+    float: left;
+    margin: 0px 10px 0px 10px;
+    border: solid 5px red;
+
 }
