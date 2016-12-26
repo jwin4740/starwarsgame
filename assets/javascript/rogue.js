@@ -7,6 +7,7 @@ var currentdefender;
 var defender1, defender2, defender3;
 var checkpoint1 = false;
 var checkpoint2 = false;
+var checkpoint3 = false;
 var tempval;
 
 
@@ -14,7 +15,10 @@ var tempval;
 
 $(document).ready(function() {
 
-
+function fIntro() {
+        $("#theme")[0].volume = 0.5;
+        $("#theme")[0].play();
+    }
     // DEFINING FUNCTIONS AND OBJECTS go to line xx to see how game starts
 
 
@@ -51,6 +55,7 @@ $(document).ready(function() {
 
 
     setup();
+    fIntro();
 
     $('.player').on("click", function() {
         if (!checkpoint1) {
@@ -67,16 +72,47 @@ $(document).ready(function() {
 
     $("#defenderondeckbox").on("click", ".player.defender", function() {
         if (!checkpoint2) {
-            $(this).appendTo("#defenderbox");
+            $("#defenderbox").html(this);
             tempval = $(this).attr("data-value");
             currentdefender = cArray[tempval - 1];
+            currentdefender.hP = cArray[tempval - 1].hP;
+            console.log(currentdefender.hP);
+
             console.log(currentdefender);
             checkpoint2 = true;
             $("#defenderbox").append();
+            checkpoint3 = true;
+    }
+});
+
+    $(".confirmbutton").on("click", function() {
+        if (checkpoint3)
+        {
+            
+            currentdefender.hP = currentdefender.hP - attacker.aP;
+            attacker.aP = attacker.aP + 15;
+            attacker.hP = attacker.hP - currentdefender.cAP;
+
+            console.log("attacker health is now : " + attacker.hP);
+            console.log("currentdefender health is now: " + currentdefender.hP);
+            $("#gamewindow").html("You attacked " + currentdefender.name + "for " + attacker.aP + " damage!!" + "<br>");
+            $("#gamewindow").append(currentdefender.name + "attacked you for " + currentdefender.cAP +  " damage!!" + "<br>");
+            $("#gamewindow").append("Your hP is now: " + attacker.hP + "<br>");
+            $("#gamewindow").append(currentdefender.name + "'s hP is now: " + currentdefender.hP);
+           
+            if(currentdefender.hP <= 0)
+            {
+                $("#defenderbox").append("You have defeated your opponent!!! Choose your next opponent");
+                checkpoint2 = false;
+
+            }
+            else if(attacker.hP <= 0)
+            {
+                $("#defenderbox").append("You have been defeated!!!");
+            }
         }
+
     });
-
-
     // --------------------------------------------------
 
 });
